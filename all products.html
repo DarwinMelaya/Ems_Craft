@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title>
+    Ems_Craft
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    /* Add some styles for the sorting dropdown */
+    .sort-container {
+        text-align: right;
+        margin-bottom: 15px;
+    }
+
+    select {
+        padding: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+  <div class="loading-screen" id="loadingScreen">
+    <img src="images/loading.gif" alt="Loading..." class="loading-gif">
+  </div>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            Ems_Craft
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+
+        <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent">
+          <ul class="navbar-nav  ">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="shop.html">
+                ALL PRODUCTS
+              </a>
+            </li>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- end header section -->
+
+    <!-- ADD CODE SECTION -->
+
+    <!-- Add a container for the sorting dropdown -->
+    <div class="sort-container">
+      <label for="sort-select">Sort by:</label>
+      <select id="sort-select" onchange="sortProducts()">
+          <option value="default">Default</option>
+          <option value="name">Product Name</option>
+          <option value="price">Price</option>
+      </select>
+  </div>
+
+  <!-- Your existing HTML content -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/custom.js"></script>
+
+  <script>
+      var originalOrder;
+
+      // Save the original order of products when the page loads
+      document.addEventListener('DOMContentLoaded', function () {
+          originalOrder = Array.from(document.querySelectorAll('.box'));
+      });
+
+      function sortProducts() {
+          var select = document.getElementById('sort-select');
+          var selectedValue = select.options[select.selectedIndex].value;
+
+          // Get the product containers
+          var productContainers = document.querySelectorAll('.box');
+
+          // Convert NodeList to array for easier manipulation
+          var productArray = Array.from(productContainers);
+
+          // Sort products based on the selected value
+          switch (selectedValue) {
+              case 'default':
+                  // Reset to original order
+                  productArray = originalOrder.slice();
+                  break;
+              case 'name':
+                  productArray.sort((a, b) => {
+                      var titleA = a.querySelector('h6').innerText.toLowerCase();
+                      var titleB = b.querySelector('h6').innerText.toLowerCase();
+                      return titleA.localeCompare(titleB);
+                  });
+                  break;
+              case 'price':
+                  productArray.sort((a, b) => {
+                      var priceA = parseFloat(a.querySelector('span').innerText.replace('₱', ''));
+                      var priceB = parseFloat(b.querySelector('span').innerText.replace('₱', ''));
+                      return priceA - priceB;
+                  });
+                  break;
+              default:
+                  // Default sorting or reset to original order
+                  break;
+          }
+
+          // Append the sorted products back to the container
+          var productSection = document.querySelector('.shop_section');
+          productSection.innerHTML = '';
+          productArray.forEach(product => {
+              productSection.appendChild(product);
+          });
+      }
+  </script>
+
+<!-- END ADD CODE SECTION -->
+
+  </div>
+  <!-- end hero area -->
+
+  <!-- shop section -->
+
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          CROCHET FLOWERS BOUQUET
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="crochet tulip bouchet.html">
+              <div class="img-box">
+                <img src="images/darwin/CROCHET TULIP BOUQUET.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  CROCHET TULIP BOUQUET✧⁠⁠。
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱80
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="crochet roses.html">
+              <div class="img-box">
+                <img src="images/darwin/Crochet roses.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  CROCHET ROSES | STARRY NIGHT INSPIRED
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱150
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/tulip bouquets 1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  TULIP BOUQUET 
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $200
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/tulip bouquets 2.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  TULIP BOUQUET 
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $200
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/tulip bouquets 3.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  TULIP BOUQUET 
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $200
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          FLOWERS BOUQUET
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱40
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 2.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱40
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 3.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 4.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 5.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 6.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/flowers 7.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLOWER
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          CROCHET BRACELET
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="beaded tulips.html">
+              <div class="img-box">
+                <img src="images/darwin/beaded tulips bracelets.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BEADED TULIPS BRACELETS
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱40
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="chain beaded bracelet.html">
+              <div class="img-box">
+                <img src="images/darwin/CHAIN BEADED BRACELETSﾟ✧⁠⁠。.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  CHAIN BEADED BRACELETSﾟ✧⁠⁠。
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱40
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="beaded bracelet taylor.html">
+              <div class="img-box">
+                <img src="images/darwin/BEADED BRACELET - TAYLOR SWIFT INSPIRED.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BEADED BRACELET - TAYLOR SWIFT INSPIRED
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/Toothless and Light Furry couple bracelets.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Toothless and Light Furry couple bracelets
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/sun and moon.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  SUN AND MOON
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/BRACELETS.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BRACELETS
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱40
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/BEADED BRACELETS.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BRACELETS
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱30
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/beaded bracelet.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BEADED BRACELETS
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱30
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/beaded bracelet 1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BEADED BRACELETS
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱25
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          KEY CHAIN
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/Miles and Gwen Star.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  MILE AND GWEN STAR
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/Bee and Luffy head.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BEE AND LUFFY HEAD
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/Cat keychain.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  CAT
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="crochet keychain.html">
+              <div class="img-box">
+                <img src="images/darwin/BUTTERFLY-CROCHET KEYCHAINS.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BUTTERFLY CROCHET
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱35
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/fluffy cat paw.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FLUFFY CAT PAW
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/frog.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  FROG
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱40
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/potato pug.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  POTATO PUG
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱70
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/mini bear.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  MINI BEAR
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/cinnamoroll.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  CINNAMOROLL
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="images/darwin/baby mushroom.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  BABY MUSHROOM
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₱50
+                  </span>
+                </h6>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+  <!-- end shop section -->
+
+  <!-- info section -->
+
+  <section class="info_section  layout_padding2-top">
+    <div class="social_container">
+      <div class="social_box">
+        <a href="">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="info_container ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              ABOUT US
+            </h6>
+            <p>
+              Welcome to Ems_Craft, where passion meets craftsmanship. We're a dedicated team of crochet enthusiasts committed to bringing you handmade creations that radiate warmth, style, and individuality. Each piece is meticulously crafted, telling a unique story through every stitch. Discover the joy of artisanal crochet with Ems_Craft—where every creation is a work of heart.
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="info_form ">
+              <h5>
+                Newsletter
+              </h5>
+              <form action="#">
+                <input type="email" placeholder="Enter your email">
+                <button>
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              NEED HELP
+            </h6>
+            <p>
+              Unleash your creativity with our crochet community. Browse patterns, get expert tips, and connect with fellow enthusiasts. Need help? Explore our guides and join discussions. Let's crochet together!
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              CONTACT US
+            </h6>
+            <div class="info_link-box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span> Magapua, Mogpog, Marinduque </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>+6309422674890</span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>emelynesplana0840@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer section -->
+    <footer class=" footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a>
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+
+  </section>
+
+  <!-- end info section -->
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
